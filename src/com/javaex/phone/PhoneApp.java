@@ -37,29 +37,60 @@ public class PhoneApp {
 				
 			} else if(num == 2) {
 				System.out.println("<2. 등록>");
-				String name = sc.next();
 				System.out.print("이름 > ");
-				String hp = sc.next();
+				String name = sc.next();
 				System.out.print("휴대전화 > ");
-				String company = sc.next();
+				String hp = sc.next();
 				System.out.print("회사번호 > ");
+				String company = sc.next();
 				sc.nextLine();
-				System.out.println("[1건이 등록되었습니다.]");
+				
 				
 				PersonVo pInsert = new PersonVo(name, hp, company);
 				phoneDao.personInsert(pInsert);
 				
+				
 			} else if(num == 3) {
 				System.out.println("<3. 수정>");
-			
+				System.out.print("번호 > ");
+				int personId = sc.nextInt();
+				sc.nextLine();
+				System.out.print("이름 > ");
+				String name = sc.next();
+				System.out.print("휴대전화 > ");
+				String hp = sc.next();
+				System.out.print("회사번호 > ");
+				String company = sc.next();
+				
+				
+				PersonVo pUpdate = new PersonVo(personId, name, hp, company);
+				phoneDao.personUpdate(pUpdate);
+				
+				
+			} else if(num == 4) {
+				System.out.println("<4. 삭제>");
+				System.out.print(">번호: ");
+				int personId = sc.nextInt();
+				
+				
+				phoneDao.personDelete(personId);
+				
+				
+			} else if(num == 5) {
+				System.out.println("<5. 검색>");
+				System.out.print("검색어 > ");
+				String searchL = sc.next();
+				
+				List<PersonVo> searchList = phoneDao.searchList(searchL);
+				getPersonList(searchList);
+				
+			} else {
+				System.out.println("[다시 입력해주세요.]");
 			}
+			
+			
 		}
 
-
-		
-		
-		
-		
 		
 		sc.close();
 	}
