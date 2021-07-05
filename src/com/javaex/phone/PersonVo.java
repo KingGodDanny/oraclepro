@@ -11,11 +11,17 @@ public class PersonVo {
 	
 	//생성자
 	public PersonVo() {
-		super();
 	}
 	
+	
+	public PersonVo(String name, String hp, String company) {
+		this.name = name;
+		this.hp = hp;
+		this.company = company;
+	}
+
+
 	public PersonVo(int personId, String name, String hp, String company) {
-		super();
 		this.personId = personId;
 		this.name = name;
 		this.hp = hp;
