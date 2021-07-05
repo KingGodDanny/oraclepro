@@ -256,13 +256,6 @@ public class PhoneDao {
 					personList.add(personVo);
 				}
 				
-				/* 이렇게 만들수도 있지만 출력메소드가 있으니 있는걸 사용하자!
-				for(int i=0; i<personList.size(); i++) {
-					PersonVo personVo = personList.get(i);
-					System.out.println(personVo.getPersonId() + ".\t" + personVo.getName() + "\t" +
-							personVo.getHp() + "\t" + personVo.getCompany());
-				}
-				*/
 				
 			} catch (SQLException e) {
 				System.out.println("error:" + e);
